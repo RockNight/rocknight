@@ -16,7 +16,7 @@ var messages = {
 };
 
 gulp.task('css', () => {
-  gulp.src('src/scss/style.scss')
+  gulp.src('src/scss/**/*.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -79,10 +79,10 @@ gulp.task('browser-sync', ['jekyll-build'], function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('src/scss/**/*.scss', ['css']);
-  gulp.watch('src/js/**/*.js', ['js']);
-  gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin']);
-  gulp.watch('src/fonts/**/*.{eot,svg,ttf, woff}', ['fonts']);
+  gulp.watch('src/scss/**/*.scss', ['css', 'jekyll-rebuild']);
+  gulp.watch('src/js/**/*.js', ['js', 'jekyll-rebuild']);
+  gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin', 'jekyll-rebuild']);
+  gulp.watch('src/fonts/**/*.{eot,svg,ttf, woff}', ['fonts', 'jekyll-rebuild']);
   gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 });
 
