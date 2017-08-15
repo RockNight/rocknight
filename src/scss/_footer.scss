@@ -3,10 +3,32 @@
   justify-content: center;
   align-items: center;
   background-color: $color-black;
-  height: 40px;
+  height: 60px;
   font-size: 30px;
 }
 
-.icon-heart {
-  color: $color-blue;
+.contacts-link {
+  &:hover {
+    & .contacts-circle {
+      border-color: $color-white;
+    }
+  }
+}
+
+.contacts-circle {
+  border: 1px solid $color-white;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  cursor: pointer;
+}
+
+@media (max-width: 780px) {
+  .contacts {
+    margin: 0 auto;
+    padding: 5px;
+  }
 }
