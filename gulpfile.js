@@ -10,6 +10,8 @@ const browserSync = require('browser-sync');
 const cp          = require('child_process');
 const sourcemaps  = require('gulp-sourcemaps');
 const imagemin    = require('gulp-imagemin');
+const browserify  = require('browserify');
+const source      = require('vinyl-source-stream');
 
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -32,9 +34,16 @@ gulp.task('css', () => {
 gulp.task('js', () => {
   return gulp.src('src/js/**/*.js')
     .pipe(plumber())
-    .pipe(concat('script.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('assets/js/'))
+    .pipe(concat('build.js'))
+    // .pipe(uglify())
+    .pipe(gulp.dest('src/js/'))
+});
+
+gulp.task('browserify', function() {
+  return browserify({ entries: ['src/js/build.js'] })
+    .bundle()
+    .pipe(source('script.js'))
+    .pipe(gulp.dest('assets/js/'));
 });
 
 gulp.task('imagemin', () => {
@@ -86,4 +95,4 @@ gulp.task('watch', function () {
   gulp.watch(['*.md', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 });
 
-gulp.task('default', ['css', 'js', 'imagemin', 'fonts', 'browser-sync', 'watch']);
+gulp.task('default', ['css', 'js', 'imagemin', 'fonts', 'browserify', 'browser-sync', 'watch']);
