@@ -2,6 +2,7 @@
 title:            Rock Night
 tagline:          'Tudo da night Rock n Roll'
 description:      'Blog sobre a Night Rock'
+baseurl:          ''
 url:              http://rocknight.github.io
 author:           'Marquinhus Gonçalves'
 email:            eu@marquinhusgoncalves.com
@@ -13,6 +14,16 @@ account:          UA-104483135-1
 markdown:       kramdown
 highlighter:    rouge
 permalink:      /:title
+
+collections:
+  interviews:
+    output: true
+    permalink: /:collection/:title
+
+
+  schedules:
+    output: true
+    permalink: /:collection/:title
 
 # html minify
 compress_html:
