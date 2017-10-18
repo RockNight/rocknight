@@ -1,19 +1,31 @@
 .main {
   width: 100%;
   max-width: 960px;
-  margin: 30px auto;
+	// margin: 30px auto;
+  margin: 0 auto 30px;
   text-align: justify;
 	padding: 0 15px;
-	display: flex;
 }
 
+.wrap-content {
+	display: flex;
+}
 .card {
   border: 1px solid #CCC;
   border-radius: 5px;
-  margin: 0 10px;
+  // margin: 0 10px;
   padding: 10px;
 }
 
+.materias {
+	margin-right: 10px;
+}
+
+.schedule {
+	margin-left: 10px;
+}
+
+// Button Back To Top
 #return-to-top {
 	position: fixed;
 	bottom: 40px;
