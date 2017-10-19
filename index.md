@@ -58,7 +58,6 @@ title: Home
     </header>
     <ul>
       {% for schedule in site.schedules limit:1 %}
-        <li><a href="{{ schedule.url }}">{{ schedule.title }}</a></li>
         {{ schedule.content }}
       {% endfor %}
     </ul>
