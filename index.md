@@ -57,7 +57,7 @@ title: Home
       <h1>Agenda</h1>
     </header>
     <ul>
-      {% for schedule in site.schedules limit:1 %}
+      {% for schedule in site.schedules limit:1 offset:1 %}
         {{ schedule.content }}
       {% endfor %}
     </ul>
